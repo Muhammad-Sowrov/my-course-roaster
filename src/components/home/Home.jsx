@@ -8,7 +8,7 @@ const Home = () => {
     useEffect(()=>{
         fetch('../../../public/fake.json')
         .then(res => res.json())
-        .then(data => setCourseCard(data));
+        .then(data => console.log(data));
     },[])
   return (
     <div>

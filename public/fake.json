@@ -11,7 +11,7 @@
     "id": "2",
     "course_img": "https://i.ibb.co/LC78kPk/Rectangle-2-1.png",
     "course_name": "Database (MySQL)",
-    "course_details": "Learn the fundamentals of MySQL database management.",
+    "course_details": "Learn the fundamentals of MySQL database management and be the pro.",
     "credit": "1.5",
     "price": "29.99"
     },
@@ -19,7 +19,7 @@
     "id": "3",   
     "course_img": "https://i.ibb.co/2cH3SwK/Rectangle-2-2.png",
     "course_name": "Introduction to C Programming",
-    "course_details": "Get started with the C programming language.",
+    "course_details": "Get started with the C programming language, work as professional.",
     "credit": "2",
     "price": "49.99"
     },

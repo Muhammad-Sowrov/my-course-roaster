@@ -2,15 +2,24 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { AiFillDollarCircle, AiFillBook } from "react-icons/ai";
+import Card from "../card/Card";
 
 const Home = () => {
   const [courseCard, setCourseCard] = useState([]);
+  const [selectedCard, setSelectedCard] = useState([]);
+
   useEffect(() => {
-    fetch("../../../public/fake.json")
+    fetch("/fake.json")
       .then((res) => res.json())
       .then((data) => setCourseCard(data));
   }, []);
-console.log(courseCard);
+
+  const handleSelect = (card) =>{
+    setSelectedCard([...selectedCard, card]);
+  };
+//   console.log(selectedCard);
+
+// console.log(courseCard);
   return (
     <div>
       <h1 className="text-3xl font-bold">Course Registration</h1>
@@ -43,7 +52,7 @@ console.log(courseCard);
                   <p className="text-base font-medium">Credit:{card.credit}hr</p>
                 </div>
                 <div className="card-actions">
-                  <button className="btn btn-success w-full">Select</button>
+                  <button onClick={()=>handleSelect(card)} className="btn btn-success w-full">Select</button>
                 </div>
               </div>
             </div>
@@ -51,7 +60,7 @@ console.log(courseCard);
         </div>
 
         <div className="w-1/3 border-red-500">
-          <h3 className="border-red-700 text-5xl">fgshskjflskj</h3>
+          <Card selectedCard={selectedCard}></Card>
         </div>
       </div>
     </div>

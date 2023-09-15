@@ -3,55 +3,54 @@
 import React, { useEffect, useState } from "react";
 import { AiFillDollarCircle, AiFillBook } from "react-icons/ai";
 import Card from "../card/Card";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const [courseCard, setCourseCard] = useState([]);
   const [selectedCard, setSelectedCard] = useState([]);
-  const [totalHour, setTotalHour]=useState([]);
-  const [remainingHour, setRemainingHour]=useState([]);
-  const [totalPrice, setTotalPrice]=useState([]);
-
+  const [totalHour, setTotalHour] = useState([]);
+  const [remainingHour, setRemainingHour] = useState([]);
+  const [totalPrice, setTotalPrice] = useState([]);
   useEffect(() => {
     fetch("/fake.json")
       .then((res) => res.json())
       .then((data) => setCourseCard(data));
   }, []);
-
-  const handleSelect = (card) =>{
-
-    const isExist = selectedCard.find((item)=> item.id == card.id);
+  const handleSelect = (card) => {
+    const isExist = selectedCard.find((item) => item.id == card.id);
     let hourCount = card.credit;
     let priceCount = card.price;
 
+    if (isExist) {
+      return toast("ALREADY SELECTED");
+    } else {
+      selectedCard.forEach((items) => {
+        priceCount += items.price;
+      });
+      setTotalPrice(priceCount);
 
-    if(isExist){
-        return alert('Already Selected')
-    }
-    else{
-        selectedCard.forEach((items)=>{
-            priceCount+=items.price;
-        });
-        setTotalPrice(priceCount);
-
-        selectedCard.forEach((item)=>{
-            hourCount+=item.credit; 
-        });
-        const remainingHour = 20 - hourCount;
+      selectedCard.forEach((item) => {
+        hourCount += item.credit;
+      });
+      const remainingHour = 20 - hourCount;
+      if (hourCount > 20) {
+        return toast("YOU CAN NOT ADD MORE CREDIT");
+      } else {
         setTotalHour(hourCount);
         setRemainingHour(remainingHour);
-        // console.log(remainingHour);
         setSelectedCard([...selectedCard, card]);
+      }
     }
-    
   };
-//   console.log(selectedCard);
-
-// console.log(courseCard);
   return (
     <div>
       <h1 className="text-3xl font-bold">Course Registration</h1>
       <div className="mt-10 flex">
-        <div key={courseCard.id} className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 w-2/3 gap-5">
+        <div
+          key={courseCard.id}
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 w-2/3 gap-5"
+        >
           {courseCard.map((card) => (
             <div key={card.id} className="w-64 shadow-xl rounded-md">
               <figure className="px10 pt10">
@@ -76,10 +75,17 @@ const Home = () => {
                   <span className="text-xl text-gray-600 font-bold">
                     <AiFillBook></AiFillBook>
                   </span>
-                  <p className="text-base font-medium">Credit:{card.credit}hr</p>
+                  <p className="text-base font-medium">
+                    Credit:{card.credit}hr
+                  </p>
                 </div>
                 <div className="card-actions">
-                  <button onClick={()=>handleSelect(card)} className="btn btn-success w-full">Select</button>
+                  <button
+                    onClick={() => handleSelect(card)}
+                    className="btn btn-success w-full"
+                  >
+                    Select
+                  </button>
                 </div>
               </div>
             </div>
@@ -87,9 +93,15 @@ const Home = () => {
         </div>
 
         <div className="w-1/3 border-red-500">
-          <Card selectedCard={selectedCard} remainingHour={remainingHour} totalHour={totalHour} totalPrice={totalPrice}></Card>
+          <Card
+            selectedCard={selectedCard}
+            remainingHour={remainingHour}
+            totalHour={totalHour}
+            totalPrice={totalPrice}
+          ></Card>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

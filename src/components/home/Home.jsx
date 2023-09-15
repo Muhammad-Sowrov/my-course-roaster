@@ -7,6 +7,9 @@ import Card from "../card/Card";
 const Home = () => {
   const [courseCard, setCourseCard] = useState([]);
   const [selectedCard, setSelectedCard] = useState([]);
+  const [totalHour, setTotalHour]=useState([]);
+  const [remainingHour, setRemainingHour]=useState([]);
+  const [totalPrice, setTotalPrice]=useState([]);
 
   useEffect(() => {
     fetch("/fake.json")
@@ -15,7 +18,31 @@ const Home = () => {
   }, []);
 
   const handleSelect = (card) =>{
-    setSelectedCard([...selectedCard, card]);
+
+    const isExist = selectedCard.find((item)=> item.id == card.id);
+    let hourCount = card.credit;
+    let priceCount = card.price;
+
+
+    if(isExist){
+        return alert('Already Selected')
+    }
+    else{
+        selectedCard.forEach((items)=>{
+            priceCount+=items.price;
+        });
+        setTotalPrice(priceCount);
+
+        selectedCard.forEach((item)=>{
+            hourCount+=item.credit; 
+        });
+        const remainingHour = 20 - hourCount;
+        setTotalHour(hourCount);
+        setRemainingHour(remainingHour);
+        // console.log(remainingHour);
+        setSelectedCard([...selectedCard, card]);
+    }
+    
   };
 //   console.log(selectedCard);
 
@@ -60,7 +87,7 @@ const Home = () => {
         </div>
 
         <div className="w-1/3 border-red-500">
-          <Card selectedCard={selectedCard}></Card>
+          <Card selectedCard={selectedCard} remainingHour={remainingHour} totalHour={totalHour} totalPrice={totalPrice}></Card>
         </div>
       </div>
     </div>

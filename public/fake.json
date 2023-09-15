@@ -4,71 +4,71 @@
     "course_img": "https://i.ibb.co/MRP889f/Rectangle-2.png",
     "course_name": "Introduction to OOP Python",
     "course_details": "Explore object-oriented programming concepts in Python.",
-    "credit": "1",
-    "price": "39.99"
+    "credit": 1,
+    "price": 39
     },
     {
     "id": "2",
     "course_img": "https://i.ibb.co/LC78kPk/Rectangle-2-1.png",
     "course_name": "Database (MySQL)",
     "course_details": "Learn the fundamentals of MySQL database management and be the pro.",
-    "credit": "1.5",
-    "price": "29.99"
+    "credit": 5,
+    "price": 29
     },
     {
     "id": "3",   
     "course_img": "https://i.ibb.co/2cH3SwK/Rectangle-2-2.png",
     "course_name": "Introduction to C Programming",
     "course_details": "Get started with the C programming language, work as professional.",
-    "credit": "2",
-    "price": "49.99"
+    "credit": 2,
+    "price": 499
     },
     {
     "id": "4",
     "course_img": "https://i.ibb.co/PWcqwRY/Rectangle-2-3.png",
     "course_name": "Introduction to Algorithms",
     "course_details": "Master algorithms and data structures.",
-    "credit": "3",
-    "price": "59.99"
+    "credit": 3,
+    "price": 599
     },
     {
     "id": "5",
     "course_img": "https://i.ibb.co/48ffb31/Rectangle-2-4.png",
     "course_name": "Introduction to C++ for DSA",
     "course_details": "Learn the basics of C++ programming.",
-    "credit": "1.5",
-    "price": "44.99"
+    "credit": 5,
+    "price": 450
     },
     {
     "id": "6",
     "course_img": "https://i.ibb.co/DYkct6f/Rectangle-2-5.png",
     "course_name": "Software Engineering",
     "course_details": "Join our comprehensive software engineering camp.",
-    "credit": "10",
-    "price": "299.99"
+    "credit": 10,
+    "price": 200
     },
     {
     "id": "7",
     "course_img": "https://i.ibb.co/fkyTXTW/Rectangle-3.png",
     "course_name": "Basic Data Structures",
     "course_details": "Deep dive into data structures and algorithms.",
-    "credit": "5",
-    "price": "79.99"
+    "credit": 5,
+    "price": 300
     },
     {
     "id": "8",
     "course_img": "https://i.ibb.co/P4XyCdD/Rectangle-3-1.png",
     "course_name": "AWS, Cloud Computing",
     "course_details": "Prepare for the AWS Cloud Practitioner certification.",
-    "credit": "2.5",
-    "price": "69.99"
+    "credit": 4,
+    "price": 680
     },
     {
     "id": "9",
     "course_img": "https://i.ibb.co/tXwMWCw/Rectangle-2-6.png",
     "course_name": "Problem-Solving Part",
     "course_details": "Explore more problem and clear your concept.",
-    "credit": "4",
-    "price": "89.99"
+    "credit": 11,
+    "price": 90
     }
     ]

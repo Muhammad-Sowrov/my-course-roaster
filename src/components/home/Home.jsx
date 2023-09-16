@@ -10,7 +10,7 @@ const Home = () => {
   const [courseCard, setCourseCard] = useState([]);
   const [selectedCard, setSelectedCard] = useState([]);
   const [totalHour, setTotalHour] = useState([]);
-  const [remainingHour, setRemainingHour] = useState([]);
+  const [remainingHour, setRemainingHour] = useState([20]);
   const [totalPrice, setTotalPrice] = useState([]);
   useEffect(() => {
     fetch("/fake.json")
